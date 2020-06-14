@@ -39,16 +39,25 @@ public class CoursePage extends AppCompatActivity {
         int position = getIntent().getIntExtra("pos", 0);
 
         List<PlayList> javaPlayLists = Arrays.asList(
-                new PlayList("01", "5:30", "Welcome to Java Intro"),
-                new PlayList("02", "3:20", "OOP as Java")
+                new PlayList("01", "5:30 min", "Welcome to Java Intro"),
+                new PlayList("02", "3:20 min", "OOP as Java"),
+                new PlayList("03", "3:20 min", "Data Types in Java"),
+                new PlayList("04", "4:00 min", "Operators in Java"),
+                new PlayList("05", "6:15 min", "Objects of Class")
         );
         List<PlayList> pythonPlayLists = Arrays.asList(
-                new PlayList("01", "4:10", "Welcome to Python"),
-                new PlayList("02", "5:20", "Interpreter as Python")
+                new PlayList("01", "4:10 min", "Welcome to Python"),
+                new PlayList("02", "5:20 min", "Interpreter as Python"),
+                new PlayList("03", "3:20 min", "Data Types in Python"),
+                new PlayList("04", "4:00 min", "Operators in Python"),
+                new PlayList("05", "6:15 min", "Objects of Class")
         );
         List<PlayList> cppPlayLists = Arrays.asList(
-                new PlayList("01", "3:40", "Welcome to C++"),
-                new PlayList("02", "4:20", "OOPS as C++")
+                new PlayList("01", "3:40 min", "Welcome to C++"),
+                new PlayList("02", "4:20 min", "OOPS as C++"),
+                new PlayList("03", "3:20 min", "Data Types in C++"),
+                new PlayList("04", "4:00 min", "Operators in C++"),
+                new PlayList("05", "6:15 min", "Objects of Class")
         );
 
         List<Course> courses = Arrays.asList(
