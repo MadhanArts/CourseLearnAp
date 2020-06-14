@@ -12,17 +12,17 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.madhanarts.courselearnapp.CoursePage;
-import com.madhanarts.courselearnapp.MainActivity;
 import com.madhanarts.courselearnapp.R;
+import com.madhanarts.courselearnapp.model.Category;
 
 import java.util.List;
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder> {
 
     private Context context;
-    List<String> categoryList;
+    List<Category> categoryList;
 
-    public CategoryAdapter(Context context, List<String> categoryList)
+    public CategoryAdapter(Context context, List<Category> categoryList)
     {
         this.context = context;
         this.categoryList = categoryList;
@@ -39,10 +39,10 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CategoryViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CategoryViewHolder holder, final int position) {
 
-        holder.categoryName.setText(categoryList.get(0));
-        holder.totalCategory.setText(categoryList.get(1));
+        holder.categoryName.setText(categoryList.get(position).getCourseName());
+        holder.totalCategory.setText(categoryList.get(position).getTotalCourse());
 
         //Glide.with(context).load(categoryList.get(position).getImage()).into(holder.categoryImage);
 
@@ -51,12 +51,11 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
             public void onClick(View v) {
 
                 Intent intent = new Intent(context, CoursePage.class);
+                intent.putExtra("pos", position);
 
                 context.startActivity(intent);
             }
         });
-
-
 
     }
 

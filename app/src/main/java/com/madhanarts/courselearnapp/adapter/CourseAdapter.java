@@ -10,19 +10,20 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.madhanarts.courselearnapp.R;
+import com.madhanarts.courselearnapp.model.PlayList;
 
 import java.util.List;
 
 public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseViewHolder> {
 
     Context context;
-    List<String> courseList;
+    List<PlayList> playLists;
 
-    public CourseAdapter(Context context, List<String> playList)
+    public CourseAdapter(Context context, List<PlayList> playList)
     {
 
         this.context = context;
-        this.courseList = playList;
+        this.playLists = playList;
 
     }
 
@@ -38,30 +39,29 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseView
     @Override
     public void onBindViewHolder(@NonNull CourseViewHolder holder, int position) {
 
-        holder.contentNumber.setText(courseList.get(0));
-        holder.contentTime.setText(courseList.get(1));
-        holder.contentName.setText(courseList.get(2));
+        holder.contentNumber.setText(playLists.get(position).getContentNumber());
+        holder.contentTime.setText(playLists.get(position).getContentTime());
+        holder.contentTitle.setText(playLists.get(position).getContentTitle());
 
     }
 
     @Override
     public int getItemCount() {
-        return courseList.size();
+        return playLists.size();
     }
 
     public static class CourseViewHolder extends RecyclerView.ViewHolder
     {
 
-        TextView contentNumber, contentTime, contentName;
+        TextView contentNumber, contentTime, contentTitle;
+
 
         public CourseViewHolder(@NonNull View itemView) {
             super(itemView);
 
             contentNumber = itemView.findViewById(R.id.content_number);
             contentTime = itemView.findViewById(R.id.content_time);
-            contentName = itemView.findViewById(R.id.course_name);
-
-
+            contentTitle = itemView.findViewById(R.id.content_title);
 
         }
 

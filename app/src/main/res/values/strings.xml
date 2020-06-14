@@ -1,46 +1,5 @@
 <resources>
     <string name="app_name">CourseLearnApp</string>
 
-    <string-array name="category1">
-
-        <item>Java</item>
-        <item>16</item>
-
-    </string-array>
-
-
-    <string-array name="category2">
-
-        <item>Python</item>
-        <item>20</item>
-
-    </string-array>
-
-
-    <string-array name="course1">
-
-        <item>01</item>
-        <item>5:30</item>
-        <item>Welcome to the Java Intro</item>
-
-    </string-array>
-
-
-    <string-array name="course2">
-
-        <item>02</item>
-        <item>4:25</item>
-        <item>Welcome to the Python Intro</item>
-
-    </string-array>
-
-    <string-array name="detail1">
-
-        <item></item>
-        <item></item>
-
-    </string-array>
-
-
 
 </resources>

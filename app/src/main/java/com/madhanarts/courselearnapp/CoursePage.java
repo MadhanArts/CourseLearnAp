@@ -7,8 +7,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import com.madhanarts.courselearnapp.adapter.CategoryAdapter;
 import com.madhanarts.courselearnapp.adapter.CourseAdapter;
+import com.madhanarts.courselearnapp.model.Course;
+import com.madhanarts.courselearnapp.model.PlayList;
 
 import java.util.Arrays;
 import java.util.List;
@@ -28,25 +29,52 @@ public class CoursePage extends AppCompatActivity {
 
         courseRecyclerView = findViewById(R.id.course_recycler);
 
-        List<String> playList = Arrays.asList(getResources().getStringArray(R.array.course1));
-
-        getContent(playList);
-
         member = findViewById(R.id.members);
         rating = findViewById(R.id.rating);
         name = findViewById(R.id.names);
         price = findViewById(R.id.price);
 
-        member.setText("10k");
-        rating.setText("4.3");
-        name.setText("Java");
-        price.setText("100");
+
+
+        int position = getIntent().getIntExtra("pos", 0);
+
+        List<PlayList> javaPlayLists = Arrays.asList(
+                new PlayList("01", "5:30", "Welcome to Java Intro"),
+                new PlayList("02", "3:20", "OOP as Java")
+        );
+        List<PlayList> pythonPlayLists = Arrays.asList(
+                new PlayList("01", "4:10", "Welcome to Python"),
+                new PlayList("02", "5:20", "Interpreter as Python")
+        );
+        List<PlayList> cppPlayLists = Arrays.asList(
+                new PlayList("01", "3:40", "Welcome to C++"),
+                new PlayList("02", "4:20", "OOPS as C++")
+        );
+
+        List<Course> courses = Arrays.asList(
+                new Course("Java", "500", "24k", "4.6", javaPlayLists),
+                new Course("Python", "450", "27k", "4.7", pythonPlayLists),
+                new Course("C++", "370", "20k", "4.3", cppPlayLists)
+        );
+
+
+
+
+        member.setText(courses.get(position).getMembers());
+        rating.setText(courses.get(position).getRating());
+        name.setText(courses.get(position).getCourseName());
+        price.setText(courses.get(position).getPrice());
+
+
+
+        getContentPlayList(courses.get(position).getPlayLists());
+
 
 
     }
 
 
-    private void getContent(List<String> playList)
+    private void getContentPlayList(List<PlayList> playList)
     {
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);

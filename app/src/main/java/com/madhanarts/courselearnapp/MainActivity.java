@@ -9,7 +9,6 @@ import android.os.Bundle;
 import com.madhanarts.courselearnapp.adapter.CategoryAdapter;
 import com.madhanarts.courselearnapp.model.Category;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -27,17 +26,19 @@ public class MainActivity extends AppCompatActivity {
 
         categoryRecyclerView = findViewById(R.id.course_recycler);
 
-        List<String> categoryList1 = Arrays.asList(getResources().getStringArray(R.array.category1));
-        List<String> categoryList2 = Arrays.asList(getResources().getStringArray(R.array.category2));
+        List<Category> categoryList = Arrays.asList(
+                new Category("Java", "17"),
+                new Category("Python", "20"),
+                new Category("C++ for Beginners", "15")
+                );
 
-        List<Category> categoryList = new ArrayList<Category>();
 
 
-        getAllCategory(categoryList1);
+        getAllCategory(categoryList);
 
     }
 
-    private void getAllCategory(List<String> categoryList) {
+    private void getAllCategory(List<Category> categoryList) {
 
         RecyclerView.LayoutManager layoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         categoryRecyclerView.setLayoutManager(layoutManager);
